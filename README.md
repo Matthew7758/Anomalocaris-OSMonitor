@@ -21,19 +21,7 @@ sudo systemctl restart docker
 Windows (PowerShell as Admin):
 Ensure you have the NVIDIA drivers installed, then enable the Docker engine integration in Docker Desktop settings under Resources > WSL Integration.
 
-2. Project Structure
-   Ensure your files are arranged as follows:
-
-/Anomalocaris-OSMonitor/
-├── backend/
-│ ├── src/main/java/com/anomalocaris/...
-│ ├── src/test/java/com/anomalocaris/...
-│ ├── Dockerfile
-│ └── pom.xml
-├── docker-compose.yml
-└── README.md
-
-3. Deployment Instructions
+2. Deployment Instructions
    Build and Run
    Use the following commands to initialize the database and the monitoring application.
 
@@ -45,7 +33,7 @@ docker-compose up --build -d
 PowerShell
 docker-compose up --build -d
 
-4. Running Tests
+3. Running Tests
    To verify the system integration, run the test suite provided in your backend/ directory.
 
 Linux/Bash:
@@ -59,7 +47,7 @@ PowerShell
 cd backend
 .\mvnw.cmd clean test
 
-5. Troubleshooting
+3. Troubleshooting
    If you encounter ERR_CONNECTION_REFUSED:
 
 Check Container Status:
@@ -74,6 +62,6 @@ Ensure SPRING_R2DBC_URL in docker-compose.yml uses the service name db, not loca
 Driver Mismatch:
 If you see Driver/library version mismatch, reboot your host machine to sync the NVIDIA kernel modules with your user-space drivers.
 
-6. Accessing the Dashboard
+5. Accessing the Dashboard
    Once the containers are healthy, access your monitoring dashboard via your web browser:
    http://localhost:8080/api/recent
