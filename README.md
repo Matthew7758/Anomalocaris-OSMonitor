@@ -1,4 +1,4 @@
-Note: right now this is moreso a tech demo that only logs a certain amount of data to not blow up the DB, however this can be expanded upon to provide full metrics at a later date.
+Note: right now this is a simple tech demo that only logs a certain amount of data to not blow up the DB, however this can be expanded upon to provide full metrics at a later date.
 
 1. Prerequisites
    Ensure you have the following installed on your machine:
