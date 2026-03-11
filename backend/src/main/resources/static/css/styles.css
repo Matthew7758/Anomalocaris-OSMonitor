@@ -1,0 +1,44 @@
+:root {
+    --bg-dark: #050505;
+    --card-bg: #101010;
+    --neon-green: #00ff9d;
+    --neon-blue: #007bff;
+    --neon-purple: #bc00ff;
+    --text-color: #e0e0e0;
+    --grid-color: #333;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.dashboard-container {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--grid-color);
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.os-banner {
+    color: var(--neon-green);
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    color: var(--neon-green);
+}

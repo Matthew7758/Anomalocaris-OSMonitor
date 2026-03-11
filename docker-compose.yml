@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: noire
+      POSTGRES_PASSWORD: Bababooey
+      POSTGRES_DB: anomalocaris
+    healthcheck: # Check to make sure PostgreSQL is setup and ready.
+      test: [ "CMD-SHELL", "pg_isready -U noire -d anomalocaris" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  app:
+    build: .
+    runtime: nvidia # Only currently supports Nvidia cards.
+    pid: "host"
+    ports: [ "8080:8080" ]
+    depends_on:
+      db:
+        condition: service_healthy
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      SPRING_R2DBC_URL: r2dbc:postgresql://db:5432/anomalocaris
+      SPRING_R2DBC_USERNAME: noire
+      SPRING_R2DBC_PASSWORD: Bababooey
